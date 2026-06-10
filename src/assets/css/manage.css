@@ -1,0 +1,524 @@
+/* ═══════════════════════════════════════════════════════════════
+   MANAGE PAGES — Shared CRUD layout styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Page header ─────────────────────────────────────────────── */
+.manage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 24px 32px 0;
+}
+
+.manage-header__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.manage-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ── Toolbar (search + filters) ──────────────────────────────── */
+.manage-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px 32px;
+}
+
+.manage-search {
+    flex: 1;
+    min-width: 200px;
+    max-width: 360px;
+    position: relative;
+}
+
+.manage-search input {
+    width: 100%;
+    padding: 9px 14px 9px 38px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    transition: border-color var(--transition);
+}
+
+.manage-search input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.manage-search i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.manage-filter {
+    padding: 8px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: border-color var(--transition);
+}
+
+.manage-filter:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* ── Data table ──────────────────────────────────────────────── */
+.manage-table-wrap {
+    padding: 0 32px 32px;
+    overflow-x: auto;
+}
+
+.manage-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.manage-table thead th {
+    padding: 14px 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    background: var(--body-bg);
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.manage-table tbody td {
+    padding: 12px 16px;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.manage-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.manage-table tbody tr:hover {
+    background: rgba(108, 99, 255, 0.03);
+}
+
+/* ── Status badges ───────────────────────────────────────────── */
+.badge-status {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.badge-status.active {
+    background: rgba(45, 206, 137, .12);
+    color: var(--success);
+}
+
+.badge-status.inactive {
+    background: rgba(245, 54, 92, .12);
+    color: var(--danger);
+}
+
+.badge-status.pending {
+    background: rgba(251, 99, 64, .12);
+    color: var(--warning);
+}
+
+.badge-status.completed {
+    background: rgba(45, 206, 137, .12);
+    color: var(--success);
+}
+
+.badge-status.cancelled {
+    background: rgba(136, 152, 170, .12);
+    color: var(--text-muted);
+}
+
+.badge-status.preparing {
+    background: rgba(17, 205, 239, .12);
+    color: var(--info);
+}
+
+.badge-status.ready {
+    background: rgba(108, 99, 255, .12);
+    color: var(--primary);
+}
+
+.badge-status.served {
+    background: rgba(45, 206, 137, .12);
+    color: var(--success);
+}
+
+/* ── Action buttons ──────────────────────────────────────────── */
+.action-btns {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.btn-action {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--card-bg);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+}
+
+.btn-action:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+.btn-action.danger:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+    background: rgba(245, 54, 92, .08);
+}
+
+.btn-action.success:hover {
+    border-color: var(--success);
+    color: var(--success);
+    background: rgba(45, 206, 137, .08);
+}
+
+.btn-action.info:hover {
+    border-color: var(--info);
+    color: var(--info);
+    background: rgba(17, 205, 239, .08);
+}
+
+/* ── Add / primary action button ─────────────────────────────── */
+.btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    box-shadow: 0 3px 10px rgba(108, 99, 255, 0.3);
+}
+
+.btn-add:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 5px 16px rgba(108, 99, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ── Modal ───────────────────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.25s ease;
+}
+
+.modal-box.wide {
+    max-width: 780px;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header h5 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    transition: color var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--danger);
+}
+
+.modal-body {
+    padding: 20px 24px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+}
+
+/* ── Form layout in modals ───────────────────────────────────── */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.form-row.single {
+    grid-template-columns: 1fr;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 9px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    background: var(--card-bg);
+    transition: border-color var(--transition);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* ── Cancel / secondary button ───────────────────────────────── */
+.btn-cancel {
+    padding: 9px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-cancel:hover {
+    border-color: var(--text-muted);
+    color: var(--text-primary);
+}
+
+/* ── Save  button ────────────────────────────────────────────── */
+.btn-save {
+    padding: 9px 24px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-save:hover {
+    background: var(--primary-dark);
+}
+
+.btn-save:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 12px;
+    opacity: 0.4;
+}
+
+.empty-state p {
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+
+    .manage-header,
+    .manage-toolbar,
+    .manage-table-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .manage-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .modal-box {
+        max-height: 85vh;
+    }
+}
+
+/* ── Auth manage extras ──────────────────────────────────────── */
+.btn-reset-pwd {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border: 1.5px solid var(--primary);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-reset-pwd:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+.form-info-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 14px;
+    margin-top: 4px;
+    border-radius: var(--radius-sm);
+    background: rgba(var(--primary-rgb, 99, 102, 241), 0.08);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.form-info-note i {
+    margin-top: 2px;
+    color: var(--primary);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}

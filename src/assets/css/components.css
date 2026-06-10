@@ -1,0 +1,233 @@
+/* ═══════════════════════════════════════════════════════════════
+   REUSABLE COMPONENT STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn-brand {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-pill);
+    padding: 0.65rem 2rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.35);
+    cursor: pointer;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 18px rgba(108, 99, 255, 0.45);
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.btn-brand:active {
+    transform: translateY(0);
+}
+
+.btn-brand:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ── Form controls ───────────────────────────────────────────── */
+.form-control-brand {
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 1rem;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    background: var(--card-bg);
+    transition: all var(--transition);
+}
+
+.form-control-brand::placeholder {
+    color: var(--text-muted);
+}
+
+.form-control-brand:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    outline: none;
+}
+
+/* ── Cards ───────────────────────────────────────────────────── */
+.card-brand {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition);
+}
+
+.card-brand:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* ── Toast container ─────────────────────────────────────────── */
+.toast-wrapper {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.toast-item {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+    max-width: 400px;
+    padding: 14px 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary);
+    animation: toastSlideIn 0.35s ease forwards;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.toast-item.toast-success {
+    border-left-color: var(--success);
+}
+
+.toast-item.toast-error {
+    border-left-color: var(--danger);
+}
+
+.toast-item.toast-warning {
+    border-left-color: var(--warning);
+}
+
+.toast-item.toast-info {
+    border-left-color: var(--info);
+}
+
+.toast-item.toast-hide {
+    animation: toastSlideOut 0.3s ease forwards;
+}
+
+.toast-item i {
+    font-size: 1.15rem;
+}
+
+.toast-item.toast-success i {
+    color: var(--success);
+}
+
+.toast-item.toast-error i {
+    color: var(--danger);
+}
+
+.toast-item.toast-warning i {
+    color: var(--warning);
+}
+
+.toast-item.toast-info i {
+    color: var(--info);
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+}
+
+/* ── Full-page loader ────────────────────────────────────────── */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 246, 252, 0.85);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease;
+}
+
+.page-loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Inline button spinner ───────────────────────────────────── */
+.btn-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(255, 255, 255, .35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* ── Password toggle ─────────────────────────────────────────── */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.1rem;
+    transition: color var(--transition);
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}
